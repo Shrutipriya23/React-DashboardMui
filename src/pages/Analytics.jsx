@@ -2,11 +2,11 @@ import React from 'react';
 import Sidenav from "./components/Sidenav";
 import Navbar from "./components/Navbar";
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
-import "../App.css";
+import Container from '@mui/material/Container';
+
 import GeoChart from "../charts/GeoChart";
 import PieChart from "../charts/PieChart";
 import HbarChart from "../charts/HbarChart";
@@ -20,105 +20,78 @@ export default function Analytics() {
         <Sidenav />
 
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Grid container spacing={2}>
-          
-            {/* Grid for the 4 Visitors Cards */}
-            <Grid  xs={12} md={5}>
+          <Container>
+            {/* Box for the Visitors Cards */}
+            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 2 }}>
               
-              
-              <Grid container spacing={1} >
-                {/* Visitors Card 1 */}
-                <Grid  xs={12} md={5}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant="h5">Visitors</Typography>
-                      <Typography variant="h6">22000</Typography>
-                      <Typography variant="body2">Since last week</Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
+              {/* Visitors Card 1 */}
+              <Card sx={{ flex: '1 1 48%', minWidth: '200px' }}>
+                <CardContent>
+                  <Typography variant="h5">Visitors</Typography>
+                  <Typography variant="h6">22000</Typography>
+                  <Typography variant="body2">Since last week</Typography>
+                </CardContent>
+              </Card>
 
-                {/* Visitors Card 2 */}
-                <Grid xs={12} md={5}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant="h5">Visitors</Typography>
-                      <Typography variant="h6">32000</Typography>
-                      <Typography variant="body2">Since last week</Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
+              {/* Visitors Card 2 */}
+              <Card sx={{ flex: '1 1 48%', minWidth: '200px' }}>
+                <CardContent>
+                  <Typography variant="h5">Visitors</Typography>
+                  <Typography variant="h6">32000</Typography>
+                  <Typography variant="body2">Since last week</Typography>
+                </CardContent>
+              </Card>
 
-                {/* Visitors Card 3 */}
-                <Grid  xs={12} md={5}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant="h5">Visitors</Typography>
-                      <Typography variant="h6">32000</Typography>
-                      <Typography variant="body2">Since last week</Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
+              {/* Visitors Card 3 */}
+              <Card sx={{ flex: '1 1 48%', minWidth: '200px' }}>
+                <CardContent>
+                  <Typography variant="h5">Visitors</Typography>
+                  <Typography variant="h6">32000</Typography>
+                  <Typography variant="body2">Since last week</Typography>
+                </CardContent>
+              </Card>
 
-                {/* Visitors Card 4 */}
-                <Grid  xs={12} md={5}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant="h5">Visitors</Typography>
-                      <Typography variant="h6">32000</Typography>
-                      <Typography variant="body2">Since last week</Typography>
-                    </CardContent>
-                  </Card>
-                 </Grid>
-                 </Grid>
-                 
-            
+              {/* Visitors Card 4 */}
+              <Card sx={{ flex: '1 1 48%', minWidth: '200px' }}>
+                <CardContent>
+                  <Typography variant="h5">Visitors</Typography>
+                  <Typography variant="h6">32000</Typography>
+                  <Typography variant="body2">Since last week</Typography>
+                </CardContent>
+              </Card>
+            </Box>
 
-            {/* Bar Chart */}
-            
-            <Grid xs={12} md={8} >
-            <Grid container spacing={6} >
+            {/* Box for Bar Chart */}
+            <Box sx={{ mb: 4 }}>
               <Card>
                 <CardContent>
                   <Typography variant="h5">Population of Largest U.S. Cities</Typography>
                   <HbarChart />
                 </CardContent>
               </Card>
-            </Grid>
-            </Grid>
-            
-            
-            
+            </Box>
 
-            
-            <Grid  xs={12}>
-              <Grid container spacing={2}>
-                {/* World Map */}
-                <Grid Item xs={12} md={8}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant="h5">World Map</Typography>
-                      <GeoChart />
-                    </CardContent>
-                  </Card>
-                </Grid>
+            {/* Box for World Map and Pie Chart */}
+            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+              {/* World Map */}
+              <Card sx={{ flex: '2 1 60%', minWidth: '300px' }}>
+                <CardContent>
+                  <Typography variant="h5">World Map</Typography>
+                  <GeoChart />
+                </CardContent>
+              </Card>
 
-                {/* Pie Chart */}
-                <Grid 
-                 xs={12} md={4}>
-                  <Card>
-                    <CardContent>
-                      <Typography variant="h5">My Daily Activities</Typography>
-                      <PieChart />
-                    </CardContent>
-                  </Card>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-          </Grid>
+              {/* Pie Chart */}
+              <Card sx={{ flex: '1 1 38%', minWidth: '200px' }}>
+                <CardContent>
+                  <Typography variant="h5">My Daily Activities</Typography>
+                  <PieChart />
+                </CardContent>
+              </Card>
+            </Box>
+          </Container>
         </Box>
       </Box>
     </div>
   );
-};
+}

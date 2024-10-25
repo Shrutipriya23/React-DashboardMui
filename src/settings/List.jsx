@@ -4,51 +4,44 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
-
 import Card from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
-
 import Profile from "./Profile";
+import Container from '@mui/material/Container';
 
+const StyledTabs = styled((props) => (
+  <Tabs
+    {...props}
+    TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
+  />
+))({
+  '& .MuiTabs-indicator': {
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+  },
+  '& .MuiTabs-indicatorSpan': {
+    maxWidth: 40,
+    width: '100%',
+    backgroundColor: '#635ee7',
+  },
+});
 
-
-  
-    
-  const StyledTabs = styled((props) => (
-    <Tabs
-      {...props}
-      TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
-    />
-  ))({
-    '& .MuiTabs-indicator': {
-      display: 'flex',
-      justifyContent: 'center',
-      backgroundColor: 'transparent',
+const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
+  ({ theme }) => ({
+    textTransform: 'none',
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.pxToRem(15),
+    marginRight: theme.spacing(1),
+    color: '#141414',
+    '&.Mui-selected': {
+      color: '#0c828f',
     },
-    '& .MuiTabs-indicatorSpan': {
-      maxWidth: 40,
-      width: '100%',
-      backgroundColor: '#635ee7',
+    '&.Mui-focusVisible': {
+      backgroundColor: '#141414',
     },
-  });
-  
-  const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
-    ({ theme }) => ({
-      textTransform: 'none',
-      fontWeight: theme.typography.fontWeightRegular,
-      fontSize: theme.typography.pxToRem(15),
-      marginRight: theme.spacing(1),
-      color: '#141414',
-      fontWeight: "400",
-      '&.Mui-selected': {
-        color: '#0c828f',
-      },
-      '&.Mui-focusVisible': {
-        backgroundColor: '#141414',
-      },
-    }),
-  );
-
+  }),
+);
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -82,28 +75,26 @@ function a11yProps(index) {
 export default function Lists() {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = ( newValue) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <Card>
-    <CardContent>
-        <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <StyledTabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <StyledTab label="Profile" {...a11yProps(0)} />
-        </StyledTabs>
-      </Box>
-      <CustomTabPanel value={value} index={0}>
-        <Profile/>
-      </CustomTabPanel>
-      
-    </Box>
-       
-
-    </CardContent>
-    </Card>
-        
+    <Container>
+      <Card>
+        <CardContent>
+          <Box sx={{ width: '100%' }}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+              <StyledTabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                <StyledTab label="Profile" {...a11yProps(0)} />
+              </StyledTabs>
+            </Box>
+            <CustomTabPanel value={value} index={0}>
+              <Profile />
+            </CustomTabPanel>
+          </Box>
+        </CardContent>
+      </Card>
+    </Container>
   );
 }

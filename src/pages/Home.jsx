@@ -1,20 +1,18 @@
 import React from 'react';
+import Navbar from "./components/Navbar";
 import Sidenav from "./components/Sidenav";
-import Navbar from"./components/Navbar";
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid2';
+import Container from '@mui/material/Container';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
-//import "../App.css";
-import "../Dash.css";
-import StorefrontIcon from '@mui/icons-material/Storefront';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-import BarChart from '../charts/BarChart';
-import Accordion from './components/Accordian';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 import CountUp from 'react-countup';
+import BarChart from '../charts/BarChart';
+import Accordion from "./components/Accordian";
 
 
 
@@ -22,118 +20,110 @@ import CountUp from 'react-countup';
 
 const Home = () => {
   return (
-    
     <div className='bgcolor'>
-    <Navbar/>
-    <Box height={70}/>
+      <Navbar />
+      <Box height={70} />
 
-    <Box sx={{ display: 'flex'}}>
-      <Sidenav/>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-      <Stack spacing={2} direction="row" alignItems={'center'}>
-      <Grid container spacing={2}>
-      
+      <Box sx={{ display: 'flex' }}>
+        <Sidenav />
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }} width="40%">
+          <Stack spacing={2} direction="row" alignItems={'center'}>
+            <Container>
+              <Box display="flex" justifyContent="space-between" alignItems={'center'} >
+                {/* Box Container for the first row */}
+                <Box sx={{ display: 'flex', gap: 2 }}>
+                  {/* First Card */}
+                  <Card sx={{ width: '250px', height: 150 }} className='gradient'>
+                    <CardContent>
+                      <div className="iconstyle"><CreditCardIcon /></div>
+                      <Typography gutterBottom variant="h5" component="div" sx={{ color: "#000000" }}>
+                        $<CountUp delay={0.2} end={500.00} duration={0.3} />
+                      </Typography>
+                      <Typography gutterBottom variant="body" component="div" sx={{ color: "#2C2D2D" }}>
+                        Total Earnings
+                      </Typography>
+                    </CardContent>
+                  </Card>
 
-      <Grid size={8}>
-        {/* <item>xs={8}</item>  */}
-        <Stack spacing={2} direction="row" >
-        <Card sx={{ maxWidth: 100 + "%" , height: 150 + "%"}} className='gradient' >
-        <CardContent>
-        <div  className="iconstyle"><CreditCardIcon/></div>
-        <Typography gutterBottom variant="h5" component="div" sx={{color: "#000000"}}>
-        $<CountUp delay={0.2} end={500.00} duration={0.3} />
-        </Typography>
-        <Typography gutterBottom variant="body" component="div" sx={{color: "#ccd1d1"}}>
-          Total Earnings
-        </Typography>
-        </CardContent>
-        </Card>
-        
-    
-      <Card sx={{ maxWidth: 100 + "%" , height: 150 +"%"}} className='gradientlight'>
-      <CardContent>
-      <div  className="iconstyle"><ShoppingBagIcon/></div>
-        <Typography gutterBottom variant="h5" component="div" sx={{color: "#000000"}}>   {/*color: "#ffffff"*/}
-        $<CountUp delay={0.2} end={900.00} duration={0.3} />
-        </Typography>
-        <Typography gutterBottom variant="body" component="div" sx={{color: "#ccd1d1"}}>
-          Total Orders
-        </Typography>
-      </CardContent>
-      </Card>
-    </Stack>
-      </Grid>
-      </Grid>
-      
-{/*...........................................*/}
-        {/*<Grid item xs={4}>*/}
-        <Grid size={4}>
-        {/* <item>xs={4}</item> */}
-        <Stack spacing={2} >
+                  {/* Second Card */}
+                  <Card sx={{ width: '250px', height: 150 }} className='gradientlight'>
+                    <CardContent>
+                      <div className="iconstyle"><ShoppingBagIcon /></div>
+                      <Typography gutterBottom variant="h5" component="div" sx={{ color: "#000000" }}>
+                        $<CountUp delay={0.2} end={900.00} duration={0.3} />
+                      </Typography>
+                      <Typography gutterBottom variant="body" component="div" sx={{ color: "#2C2D2D" }}>
+                        Total Orders
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Box>
 
-        <Card sx={{ maxWidth: 345 }}className='gradientlight'>
-          <CardContent>
-          <Stack spacing={2} direction="row">
-       <div className="iconstyleblack"> <StorefrontIcon/></div>
-        <div className="paddingall">
-        <span className="pricetitle">$203k</span>
-        <br/>
-        <span className="pricesubtitle">Total Income</span>
-        </div>
-        </Stack>
-          </CardContent>
-        </Card>
-       
-        <Card sx={{ maxWidth: 345 }}className='gradientlight'>
-          <CardContent>
-          <Stack spacing={2} direction="row">
-       <div className="iconstyleblack"> <StorefrontIcon/></div>
-        <div className="paddingall">
-        <span className="pricetitle">$203k</span>
-        <br/>
-        <span className="pricesubtitle">Total Income</span>
-        </div>
-        </Stack>
-          </CardContent>
-        </Card>
-       </Stack>
-        </Grid>
-        </Stack>
-        {/* </Grid> */}
-{/*.............................*/}
-      <Box height={20}/>
-      <Grid container spacing={2} direction="row">
+                {/* Box Container for the second row */}
+                <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
+                  <Stack spacing={2}>
+                    <Card sx={{ width: 345 }} className='gradientlight' >
+                      <CardContent>
+                      <Stack spacing={2} direction="row" alignItems="center"> 
+                      <Box className="iconstyleblack" sx={{ display: 'flex', alignItems: 'center' }}> 
+                      <StorefrontIcon />
+                      </Box>
+                      <div className="paddingall">
+                      <span className="pricetitle">$203k</span>
+                      <br />
+                     <span className="pricesubtitle">Total Income</span>
+                      </div>
+                      </Stack>
+                      </CardContent>
+                    </Card>
 
-        <Grid item xs={8}>
-        <Card sx={{ height: 60 + "vh"}}>
-        <CardContent><BarChart/></CardContent>
-        </Card>
-        </Grid>
+                    <Card sx={{ width: 345 }} className='gradientlight'>
+                      <CardContent>
+                      <Stack spacing={2} direction="row" alignItems="center"> 
+                      <Box className="iconstyleblack" sx={{ display: 'flex', alignItems: 'center' }}> 
+                      <StorefrontIcon />
+                      </Box>
+                      <div className="paddingall">
+                      <span className="pricetitle">$203k</span>
+                      <br />
+                     <span className="pricesubtitle">Total Income</span>
+                      </div>
+                      </Stack>
+                      </CardContent>
+                    </Card>
+                  </Stack>
+                </Box>
+              </Box>
 
-        <Grid item xs={4}>
-          <Card sx={{ height: 60 + "vh" }}>
-            <CardContent>
-            {/* <div className="iconstyleblack"> <StorefrontIcon/></div> */}
-            <div className="paddingall">
-            <span className="pricetitle">Popular Products</span>
-            </div>
-            <Accordion/>
-            </CardContent>
-          </Card>
-        </Grid>
+              <Box height={20} />
 
-        </Grid>
-        
+              {/* Box for Chart and Accordion */}
+              <Box sx={{ display: 'flex', gap: 2 }}>
+                <Box sx={{ flex: 2 }}>
+                  <Card sx={{ height: '60vh' }}>
+                    <CardContent>
+                      <BarChart />
+                    </CardContent>
+                  </Card>
+                </Box>
+
+                <Box sx={{ flex: 1 }}>
+                  <Card sx={{ height: '60vh' }}>
+                    <CardContent>
+                      <div className="paddingall">
+                        <span className="pricetitle">Popular Products</span>
+                      </div>
+                      <Accordion />
+                    </CardContent>
+                  </Card>
+                </Box>
+              </Box>
+            </Container>
+          </Stack>
         </Box>
-        
-        </Box>
-      </div>
-    
-    
-  )
-}
+      </Box>
+    </div>
+  );
+};
 
 export default Home;
-
-    
-    
