@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
 
-import GeoChart from "../charts/GeoChart";
+import GeoChart from "../charts/Geochart";
 import PieChart from "../charts/PieChart";
 import HbarChart from "../charts/HbarChart";
 
